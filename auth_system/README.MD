@@ -1,17 +1,37 @@
-# RBAC система
+## Запуск проекта
 
-## Архитектура
-User → Role → Permission
+Клонировать репозиторий:
 
-- Пользователь может иметь несколько ролей
-- Роль содержит набор разрешений
-- Проверка доступа происходит по permission code
+git clone https://github.com/username/auth_test_assignment.git
+cd auth_test_assignment
 
-## Ошибки
-- 401 — пользователь не аутентифицирован
-- 403 — нет прав доступа
 
-## Пример permissions
-- reports.view
-- admin.manage_roles
-- admin.manage_permissions
+Создать виртуальное окружение и установить зависимости:
+
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+pip install -r requirements.txt
+
+
+Настроить базу данных:
+
+Создать Postgres DB и пользователя
+
+
+
+Подставить свои данные БД и SECRET_KEY
+
+Сделать миграции:
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+Заполнить тестовые данные через shell:
+
+python manage.py shell
+
+
+Запустить сервер:
+
+python manage.py runserver
